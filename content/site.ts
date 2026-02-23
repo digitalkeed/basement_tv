@@ -1,22 +1,20 @@
 export const site = {
   nav: [
-    { label: "Editors", href: "/editors" },
-    { label: "The Lookout", href: "/the-lookout" },
-    { label: "Music Videos", href: "/music-videos" },
-    { label: "Films", href: "/films" },
-    { label: "Contact", href: "/contact" },
+    { label: "Work", href: "/work", anchor: "#selected-work" },
+    { label: "About Us", href: "/#about", anchor: "#about" },
+    { label: "Contact Us", href: "/contact", anchor: "#contact" },
   ],
-  externalLink: {
-    label: "Transformer",
-    href: "https://example.com",
-  },
-  follow: {
-    label: "Follow",
-    href: "https://instagram.com",
+  cta: {
+    label: "Get in touch",
+    href: "mailto:hello@basement.tv",
   },
   email: {
     label: "Email",
     href: "mailto:hello@basement.tv",
+  },
+  follow: {
+    label: "Follow",
+    href: "https://instagram.com",
   },
   locations: [
     { city: "Los Angeles", address: "1708 Berkeley Street, Santa Monica, CA 90404", phone: "310-828-5555" },

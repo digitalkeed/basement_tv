@@ -1,5 +1,7 @@
 import { site } from "@/content/site";
 
+export const metadata = { title: "Contact — Basement", description: "Get in touch. Editing and post-production." };
+
 const wrapStyles: React.CSSProperties = {
   maxWidth: "600px",
   margin: "0 auto",

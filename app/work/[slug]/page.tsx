@@ -48,6 +48,16 @@ export async function generateStaticParams() {
   return getProjects().map((p) => ({ slug: p.slug }));
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
+  if (!project) return { title: "Work — Basement" };
+  return {
+    title: `${project.title} — Basement`,
+    description: `${project.client}. ${project.credits ?? ""} ${project.year ?? ""}`.trim(),
+  };
+}
+
 export default async function WorkPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);

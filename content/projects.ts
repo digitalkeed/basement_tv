@@ -9,6 +9,8 @@ export interface Project {
   poster: string;
   credits?: string;
   year?: number;
+  /** Service tags for card: Edit, Color, Sound, Motion */
+  serviceTags?: string[];
 }
 
 export const projects: Project[] = [
@@ -64,6 +66,11 @@ export function getProjectBySlug(slug: string): Project | undefined {
 
 export function getProjectsByCategory(category: ProjectCategory): Project[] {
   return projects.filter((p) => p.category === category);
+}
+
+/** Curated subset for home "Selected Work" (max 6–8) */
+export function getFeaturedProjects(): Project[] {
+  return projects.slice(0, 6);
 }
 
 export function getAdjacentProjects(slug: string): { prev: Project | null; next: Project | null } {

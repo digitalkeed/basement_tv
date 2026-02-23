@@ -18,6 +18,7 @@ const titleStyles: React.CSSProperties = {
 const linkStyles: React.CSSProperties = {
   fontSize: "var(--text-sm)",
   textDecoration: "underline",
+  color: "var(--accent)",
 };
 
 export default function NotFound() {
