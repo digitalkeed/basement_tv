@@ -1,49 +1,22 @@
-import { getFeaturedProjects } from "@/content/projects";
-import { about } from "@/content/about";
-import { site } from "@/content/site";
-import { HomeHero } from "@/components/HomeHero";
-import { ProofStrip } from "@/components/ProofStrip";
-import { SelectedWorkSection } from "@/components/SelectedWorkSection";
-import { CapabilitiesBento } from "@/components/CapabilitiesBento";
-import { ProcessSection } from "@/components/ProcessSection";
-import { HomeAbout } from "@/components/HomeAbout";
-import { HomeContactTeaser } from "@/components/HomeContactTeaser";
-import { ScrollReveal } from "@/components/ScrollReveal";
-import { Section } from "@/components/Section";
+import { WorkSection111 } from "@/components/WorkSection111";
+import { StatsStrip111 } from "@/components/StatsStrip111";
+import { About111 } from "@/components/About111";
+import { Contact111 } from "@/components/Contact111";
+import { ScrollReveal111 } from "@/components/ScrollReveal111";
 
 export const metadata = {
-  title: "Basement",
+  title: "Basement — Editing & Post-Production",
   description: "Editing and post-production. Work that moves.",
 };
 
 export default function HomePage() {
-  const featured = getFeaturedProjects();
-  const heroProject = featured[0] ?? null;
   return (
     <>
-      <HomeHero featured={heroProject} />
-      <ProofStrip />
-      <ScrollReveal>
-        <Section id="selected-work">
-          <SelectedWorkSection projects={featured} />
-        </Section>
-      </ScrollReveal>
-      <ScrollReveal>
-        <Section>
-          <CapabilitiesBento />
-        </Section>
-      </ScrollReveal>
-      <ScrollReveal>
-        <Section>
-          <ProcessSection />
-        </Section>
-      </ScrollReveal>
-      <ScrollReveal>
-        <HomeAbout paragraph={about.paragraph} valueCards={about.valueCards} />
-      </ScrollReveal>
-      <ScrollReveal>
-        <HomeContactTeaser locations={site.locations} emailHref={site.email.href} />
-      </ScrollReveal>
+      <ScrollReveal111 />
+      <WorkSection111 />
+      <StatsStrip111 />
+      <About111 />
+      <Contact111 />
     </>
   );
 }

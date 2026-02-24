@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Sora } from "next/font/google";
 import "./globals.css";
+import "./theme-basement111.css";
 import { ClientLayout } from "@/components/ClientLayout";
 import { GrainOverlay } from "@/components/GrainOverlay";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
-const sora = Sora({ subsets: ["latin"], variable: "--font-sora", display: "swap", weight: ["400", "500", "600", "700"] });
-
 export const metadata: Metadata = {
-  title: "Basement",
-  description: "Editing and post-production.",
+  title: "Basement — Editing & Post-Production",
+  description: "Editing and post-production. Work that moves.",
 };
 
 export default function RootLayout({
@@ -18,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${sora.variable}`}>
+    <html lang="en" className="theme-basement111">
       <body>
         <GrainOverlay />
         <a href="#main" className="skip-link">
