@@ -82,14 +82,14 @@ export function Cursor111() {
           position: "fixed",
           top: 0,
           left: 0,
-          width: click ? "4px" : "6px",
-          height: click ? "4px" : "6px",
-          background: "var(--acid)",
+          width: "5px",
+          height: "5px",
+          background: "var(--lime)",
           borderRadius: "50%",
           pointerEvents: "none",
           zIndex: 9999,
           transform: "translate(-50%, -50%)",
-          transition: "width 0.25s var(--easing), height 0.25s var(--easing)",
+          willChange: "left, top",
         }}
       />
       <div
@@ -100,15 +100,16 @@ export function Cursor111() {
           position: "fixed",
           top: 0,
           left: 0,
-          width: click ? "20px" : hover ? "72px" : "36px",
-          height: click ? "20px" : hover ? "72px" : "36px",
-          border: "1px solid rgba(245,242,235,0.45)",
+          width: click ? 16 : hover ? 60 : 32,
+          height: click ? 16 : hover ? 60 : 32,
+          border: "1px solid var(--paper-35)",
           borderRadius: "50%",
           pointerEvents: "none",
           zIndex: 9998,
           transform: "translate(-50%, -50%)",
-          transition: "width 0.35s var(--easing), height 0.35s var(--easing), border-color 0.2s, background 0.25s",
-          ...(hover ? { background: "rgba(212,242,68,0.08)", borderColor: "var(--acid)" } : {}),
+          transition: "width 0.38s var(--ease), height 0.38s var(--ease), border-color 0.22s, background 0.22s",
+          willChange: "left, top",
+          ...(hover ? { background: "var(--lime-08)", borderColor: "var(--lime)" } : {}),
         }}
       />
     </>

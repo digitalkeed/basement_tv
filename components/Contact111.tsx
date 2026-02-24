@@ -1,72 +1,79 @@
 import { site } from "@/content/site";
 
+const OFFICE_LABELS: Record<string, string> = {
+  "Los Angeles": "Santa Monica",
+  "New York": "Lower Manhattan",
+  "Austin": "East Austin",
+};
+
 export function Contact111() {
   return (
-    <section id="contact" style={{ padding: "100px 0 0", borderTop: "1px solid var(--rule)" }}>
+    <section id="contact" style={{ borderTop: "1px solid var(--rule)" }}>
       <div
         className="reveal contact-wrapper-111"
-        style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}
+        style={{ display: "grid", gridTemplateColumns: "1.08fr 1fr" }}
       >
-        <div className="contact-left-111" style={{ padding: "60px 32px 80px", borderRight: "1px solid var(--rule)", display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 9, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--acid)" }}>Get in Touch</div>
+        <div className="contact-left-111" style={{ padding: "70px var(--pad) 80px", borderRight: "1px solid var(--rule)", display: "flex", flexDirection: "column" }}>
+          <div style={{ fontFamily: "var(--grot)", fontSize: 9.5, fontWeight: 500, letterSpacing: "0.24em", textTransform: "uppercase", color: "var(--lime)" }}>Get in Touch</div>
           <div
             style={{
-              fontFamily: "var(--font-sf)",
-              fontSize: "clamp(56px, 7vw, 110px)",
-              letterSpacing: "0.02em",
+              fontFamily: "var(--sf)",
+              fontSize: "clamp(52px, 8vw, 108px)",
+              fontWeight: 600,
+              letterSpacing: "-0.042em",
               lineHeight: 0.9,
-              margin: "16px 0 32px",
+              color: "var(--paper)",
+              margin: "14px 0 34px",
             }}
           >
-            Let&apos;s
-            <br />
-            make
-            <br />
-            <em style={{ fontStyle: "italic", fontFamily: "var(--font-sf)", color: "var(--acid)", display: "block" }}>something.</em>
+            Let&apos;s<br />make<br />
+            <i style={{ display: "block", fontStyle: "italic", fontWeight: 300, color: "var(--lime)", fontSize: "0.8em" }}>something.</i>
           </div>
           <a
             href={site.email.href}
             style={{
-              fontFamily: "var(--font-sf)",
-              fontStyle: "italic",
-              fontSize: "clamp(18px, 2vw, 26px)",
-              color: "var(--white)",
-              borderBottom: "1px solid rgba(245,242,235,0.2)",
-              paddingBottom: 12,
-              marginBottom: 24,
+              fontFamily: "var(--sf)",
+              fontSize: "clamp(15px, 1.7vw, 21px)",
+              fontWeight: 400,
+              letterSpacing: "-0.01em",
+              color: "var(--paper)",
               width: "fit-content",
+              borderBottom: "1px solid var(--paper-18)",
+              paddingBottom: 12,
             }}
             className="contact-email-link-111"
           >
             hello@basement.tv
           </a>
-          <p style={{ fontSize: 13, lineHeight: 1.8, color: "var(--dim)", marginBottom: 32 }}>
+          <p style={{ fontFamily: "var(--grot)", fontSize: 13.5, fontWeight: 300, lineHeight: 1.82, color: "var(--paper-35)", marginTop: 20, maxWidth: 360 }}>
             Have a project in mind? Tell us about it. Whether it&apos;s a single offline edit or a full post package — we want to hear from you.
           </p>
-          <p style={{ fontSize: 12, letterSpacing: "0.08em", color: "var(--dim)", marginTop: "auto" }}>Replies within 24–48 hours.</p>
+          <span style={{ fontFamily: "var(--grot)", fontSize: 10, fontWeight: 400, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--paper-35)", marginTop: "auto", paddingTop: 40 }}>
+            Replies within 24–48 hours
+          </span>
         </div>
-        <div className="reveal" style={{ padding: "60px 32px 80px", display: "flex", flexDirection: "column", gap: 0 }}>
-          <div style={{ fontSize: 9, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--acid)", marginBottom: 28 }}>Studios</div>
+        <div className="reveal c-r-111" data-d="1" style={{ padding: "70px var(--pad) 80px" }}>
+          <div style={{ fontFamily: "var(--grot)", fontSize: 9, fontWeight: 500, letterSpacing: "0.24em", textTransform: "uppercase", color: "var(--lime)", marginBottom: 26 }}>Studios</div>
           {site.locations.map((loc) => (
             <div
               key={loc.city}
               style={{
-                padding: "28px 0",
+                padding: "22px 0",
                 borderBottom: "1px solid var(--rule)",
                 display: "grid",
-                gridTemplateColumns: "110px 1fr",
-                gap: 20,
+                gridTemplateColumns: "86px 1fr",
+                gap: 16,
                 alignItems: "start",
               }}
             >
-              <div style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--acid)", paddingTop: 2 }}>{loc.city}</div>
-              <div style={{ fontSize: 13, lineHeight: 1.8, color: "rgba(245,242,235,0.55)" }}>
-                <strong style={{ display: "block", color: "var(--white)", fontWeight: 400, marginBottom: 2 }}>{loc.city}</strong>
-                {loc.address.replace(/, /g, ", ")}
-                {loc.phone && (
+              <div style={{ fontFamily: "var(--cond)", fontSize: 10.5, fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--paper-35)", paddingTop: 2 }}>{loc.city}</div>
+              <div style={{ fontFamily: "var(--grot)", fontSize: 13, fontWeight: 300, lineHeight: 1.88, color: "var(--paper-35)" }}>
+                <strong style={{ display: "block", fontFamily: "var(--sf)", fontSize: 13.5, fontWeight: 500, letterSpacing: "-0.01em", color: "var(--paper)", marginBottom: 1 }}>{OFFICE_LABELS[loc.city] ?? loc.city}</strong>
+                {loc.address}
+                {loc.phone && loc.phone !== "xxx-xxx-xxxx" && (
                   <>
                     <br />
-                    <a href={`tel:${loc.phone.replace(/-/g, "")}`} style={{ color: "inherit" }}>{loc.phone}</a>
+                    <a href={`tel:${loc.phone.replace(/\D/g, "")}`}>{loc.phone}</a>
                   </>
                 )}
               </div>

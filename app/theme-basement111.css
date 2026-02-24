@@ -1,14 +1,32 @@
-/* Basement111 design — SF Pro Display, classy system stack */
+/* Final design — tokens from basement-fina1l.html */
 :root {
-  --black: #050505;
-  --white: #f5f2eb;
-  --acid: #d4f244;
-  --dim: rgba(245, 242, 235, 0.38);
-  --rule: rgba(245, 242, 235, 0.1);
+  --sf: -apple-system, "SF Pro Display", "SF Pro Text", BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  --grot: var(--font-barlow), -apple-system, BlinkMacSystemFont, sans-serif;
+  --cond: var(--font-barlow-condensed), var(--font-barlow), sans-serif;
+
+  --ink: #080808;
+  --paper: #eeece5;
+  --paper-60: rgba(238, 236, 229, 0.6);
+  --paper-35: rgba(238, 236, 229, 0.35);
+  --paper-18: rgba(238, 236, 229, 0.18);
+  --paper-08: rgba(238, 236, 229, 0.08);
+  --lime: #c8f234;
+  --lime-08: rgba(200, 242, 52, 0.08);
+  --rule: rgba(238, 236, 229, 0.1);
+  --rule-sm: rgba(238, 236, 229, 0.07);
+
   --nav-h: 56px;
-  --easing: cubic-bezier(0.76, 0, 0.24, 1);
-  /* SF Pro Display — Apple system font; fallbacks for other platforms */
-  --font-sf: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --pad: 30px;
+  --gap: 2px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Aliases for components */
+  --font-sf: var(--sf);
+  --white: var(--paper);
+  --black: var(--ink);
+  --acid: var(--lime);
+  --dim: var(--paper-60);
+  --easing: var(--ease);
 }
 
 html.theme-basement111 {
@@ -21,11 +39,13 @@ html.theme-basement111 {
 }
 
 html.theme-basement111 body {
-  background: var(--black);
-  color: var(--white);
-  font-family: var(--font-sf);
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--grot);
   font-weight: 300;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 html.theme-basement111 body.cursor-custom {
   cursor: none;
@@ -36,19 +56,18 @@ html.theme-basement111 body.cursor-custom {
   }
 }
 
-/* Grain — already in GrainOverlay, keep body grain optional */
 html.theme-basement111 .grain-overlay {
-  opacity: 0.035;
+  opacity: 0.03;
+  background-size: 180px;
 }
 
-/* Skip link */
 .skip-link {
   position: absolute;
   top: -100px;
   left: 16px;
   padding: 8px 16px;
-  background: var(--acid);
-  color: var(--black);
+  background: var(--lime);
+  color: var(--ink);
   font-size: 12px;
   z-index: 10000;
   transition: top 0.2s;
@@ -57,21 +76,30 @@ html.theme-basement111 .grain-overlay {
   top: 16px;
 }
 
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--acid);
+html.theme-basement111 a:focus-visible,
+html.theme-basement111 button:focus-visible {
+  outline: 2px solid var(--lime);
   outline-offset: 2px;
 }
 
 /* Scroll reveal */
 html.theme-basement111 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.75s var(--easing), transform 0.75s var(--easing);
+  transform: translateY(22px);
+  transition: opacity 0.72s var(--ease), transform 0.72s var(--ease);
 }
 html.theme-basement111 .reveal.visible {
   opacity: 1;
   transform: none;
+}
+html.theme-basement111 .reveal[data-d="1"] {
+  transition-delay: 0.09s;
+}
+html.theme-basement111 .reveal[data-d="2"] {
+  transition-delay: 0.18s;
+}
+html.theme-basement111 .reveal[data-d="3"] {
+  transition-delay: 0.27s;
 }
 @media (prefers-reduced-motion: reduce) {
   html.theme-basement111 .reveal {
@@ -81,16 +109,74 @@ html.theme-basement111 .reveal.visible {
 }
 
 html.theme-basement111 .contact-email-link-111:hover {
-  border-color: var(--acid);
-  color: var(--acid);
+  border-color: var(--lime);
+  color: var(--lime);
 }
 html.theme-basement111 footer a:hover {
-  color: var(--white);
+  color: var(--paper);
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  html.theme-basement111 #nav .nav-links-111 {
+html.theme-basement111 .a-link-111:hover {
+  color: var(--lime);
+  border-color: var(--lime);
+}
+html.theme-basement111 .a-link-111:hover svg {
+  transform: translate(2px, -2px);
+}
+html.theme-basement111 .a-link-111 svg {
+  transition: transform 0.25s var(--ease);
+}
+
+html.theme-basement111 .svc-scroll-111 {
+  scrollbar-width: none;
+}
+html.theme-basement111 .svc-scroll-111::-webkit-scrollbar {
+  display: none;
+}
+html.theme-basement111 .svc-card-111:hover {
+  background: rgba(238, 236, 229, 0.016);
+}
+html.theme-basement111 .svc-card-111:hover .pill-111 {
+  border-color: rgba(200, 242, 52, 0.3);
+  color: rgba(200, 242, 52, 0.7);
+}
+
+html.theme-basement111 .ph-item-111:first-child {
+  padding-top: 0;
+}
+html.theme-basement111 .ph-item-111:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+html.theme-basement111 .stats-strip-111 .stat:last-child {
+  border-right: none;
+}
+
+/* Play button hover */
+html.theme-basement111 .play-btn-111 {
+  transition: border-color 0.28s, background 0.28s, transform 0.4s var(--ease);
+}
+html.theme-basement111 .reel-hero-111:hover .play-btn-111 {
+  border-color: var(--lime);
+  background: var(--lime-08);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Filter bar */
+html.theme-basement111 .filters-111 {
+  scrollbar-width: none;
+}
+html.theme-basement111 .filters-111::-webkit-scrollbar {
+  display: none;
+}
+html.theme-basement111 .fb:hover {
+  color: var(--paper);
+}
+
+/* Work grid responsive */
+@media (max-width: 900px) {
+  html.theme-basement111 .nav-links-111 {
     display: none;
   }
   html.theme-basement111 .work-grid-111 {
@@ -101,6 +187,12 @@ html.theme-basement111 footer a:hover {
   }
   html.theme-basement111 .stats-strip-111 {
     grid-template-columns: 1fr 1fr;
+  }
+  html.theme-basement111 .stat:nth-child(2) {
+    border-right: none;
+  }
+  html.theme-basement111 .stat:nth-child(3) {
+    border-right: 1px solid var(--rule);
   }
   html.theme-basement111 .about-header-111 {
     grid-template-columns: 1fr;
@@ -121,5 +213,16 @@ html.theme-basement111 footer a:hover {
   }
   html.theme-basement111 .reel-hero-111 {
     aspect-ratio: 4/3;
+  }
+  html.theme-basement111 footer {
+    grid-template-columns: 1fr 1fr;
+  }
+  html.theme-basement111 .f-brand-111 {
+    grid-column: 1 / -1;
+  }
+  html.theme-basement111 footer .f-bottom-111 {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
   }
 }

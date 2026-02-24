@@ -30,6 +30,13 @@ export function WorkSection111() {
       ? projects
       : projects.filter((p) => CAT_TO_FILTER[p.category] === filter);
 
+  const stats = [
+    { num: "12", suffix: "+", desc: "Years in Post" },
+    { num: "4", suffix: "K", desc: "Broadcast Delivery" },
+    { num: "3", suffix: "", desc: "Studios · Nationwide" },
+    { num: "100", suffix: "%", desc: "Senior Creatives" },
+  ];
+
   return (
     <section
       id="work"
@@ -39,7 +46,18 @@ export function WorkSection111() {
       }}
     >
       {/* Hero reel */}
-      <div className="reveal reel-hero-111" style={{ position: "relative", width: "100%", aspectRatio: "16/7", overflow: "hidden", background: "#0a0a0a" }}>
+      <Link
+        href={projects[0] ? `/work/${projects[0].slug}` : "#work"}
+        className="reveal reel-hero-111"
+        style={{
+          position: "relative",
+          width: "100%",
+          aspectRatio: "16/6.8",
+          overflow: "hidden",
+          background: "#0c0c0c",
+          display: "block",
+        }}
+      >
         {projects[0] && (
           <>
             <Image
@@ -56,61 +74,112 @@ export function WorkSection111() {
               playsInline
               autoPlay
               src={projects[0].videoSrc}
-              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 1 }}
               aria-hidden
             />
             <div
               style={{
                 position: "absolute",
                 inset: 0,
-                background: "linear-gradient(to bottom, transparent 35%, rgba(5,5,5,0.6) 100%)",
+                background: "linear-gradient(to bottom, rgba(8,8,8,.12) 0%, transparent 28%, transparent 52%, rgba(8,8,8,.78) 100%)",
                 zIndex: 2,
               }}
             />
-            <Link
-              href={`/work/${projects[0].slug}`}
+            <div
               style={{
                 position: "absolute",
                 top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-                zIndex: 3,
-                width: 70,
-                height: 70,
-                border: "1px solid rgba(245,242,235,0.35)",
+                zIndex: 4,
+                width: 66,
+                height: 66,
+                border: "1px solid var(--paper-35)",
                 borderRadius: "50%",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
               }}
-              aria-label="Play showreel"
+              className="play-btn-111"
+              aria-hidden
             >
-              <svg width={18} height={18} viewBox="0 0 24 24" fill="none" style={{ marginLeft: 4 }}>
-                <polygon points="6,3 20,12 6,21" fill="currentColor" />
+              <svg width={14} height={16} viewBox="0 0 14 16" fill="none" style={{ marginLeft: 4 }}>
+                <polygon points="0,0 14,8 0,16" fill="rgba(238,236,229,.88)" />
               </svg>
-            </Link>
-            <div style={{ position: "absolute", bottom: 32, left: 32, zIndex: 3, display: "flex", alignItems: "flex-end", gap: 24 }}>
-              <div style={{ fontFamily: "var(--font-sf)", fontSize: "clamp(40px, 5vw, 72px)", letterSpacing: "0.04em", lineHeight: 1 }}>
+            </div>
+            <div
+              style={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                zIndex: 3,
+                display: "flex",
+                alignItems: "flex-end",
+                justifyContent: "space-between",
+                padding: "26px var(--pad)",
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: "var(--sf)",
+                  fontSize: "clamp(32px, 5vw, 72px)",
+                  fontWeight: 600,
+                  letterSpacing: "-0.03em",
+                  lineHeight: 0.95,
+                  color: "var(--paper)",
+                }}
+              >
                 2025 Showreel
               </div>
-              <div style={{ fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--dim)", paddingBottom: 6 }}>
-                Basement Studio · LA / NY / Austin
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 4, paddingBottom: 4 }}>
+                <span style={{ fontFamily: "var(--grot)", fontSize: 10, fontWeight: 400, letterSpacing: "0.17em", textTransform: "uppercase", color: "var(--paper-60)" }}>
+                  Basement Studio
+                </span>
+                <span style={{ fontFamily: "var(--grot)", fontSize: 10, fontWeight: 400, letterSpacing: "0.17em", textTransform: "uppercase", color: "var(--paper-60)" }}>
+                  LA · NY · Austin
+                </span>
               </div>
             </div>
           </>
         )}
+      </Link>
+
+      {/* Stats bar */}
+      <div className="reveal stats-strip-111" data-d="1" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", borderTop: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)" }}>
+        {stats.map((s) => (
+          <div
+            key={s.desc}
+            className="stat"
+            style={{
+              padding: "20px var(--pad)",
+              borderRight: "1px solid var(--rule)",
+              display: "flex",
+              alignItems: "baseline",
+              gap: 7,
+            }}
+          >
+            <span style={{ fontFamily: "var(--sf)", fontSize: 21, fontWeight: 600, letterSpacing: "-0.025em", color: "var(--paper)", lineHeight: 1 }}>
+              {s.num}
+              {s.suffix && <sup style={{ fontSize: 11, color: "var(--lime)", verticalAlign: "super", letterSpacing: 0 }}>{s.suffix}</sup>}
+            </span>
+            <span style={{ fontFamily: "var(--grot)", fontSize: 10, fontWeight: 400, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--paper-35)" }}>
+              {s.desc}
+            </span>
+          </div>
+        ))}
       </div>
 
       {/* Filter bar */}
       <div
-        className="reveal"
+        className="reveal filters-111"
+        data-d="2"
         style={{
           display: "flex",
-          alignItems: "center",
-          borderTop: "1px solid var(--rule)",
+          padding: "0 var(--pad)",
           borderBottom: "1px solid var(--rule)",
-          padding: "0 32px",
           overflowX: "auto",
+          scrollbarWidth: "none",
         }}
       >
         {FILTERS.map((f) => (
@@ -118,19 +187,21 @@ export function WorkSection111() {
             key={f.id}
             type="button"
             onClick={() => setFilter(f.id)}
+            className={filter === f.id ? "fb on" : "fb"}
             style={{
-              fontSize: 11,
+              fontFamily: "var(--grot)",
+              fontSize: 10.5,
               fontWeight: 400,
-              letterSpacing: "0.14em",
+              letterSpacing: "0.15em",
               textTransform: "uppercase",
-              color: filter === f.id ? "var(--white)" : "var(--dim)",
-              padding: "16px 20px",
-              border: "none",
-              background: "none",
-              borderBottom: `2px solid ${filter === f.id ? "var(--acid)" : "transparent"}`,
+              color: filter === f.id ? "var(--paper)" : "var(--paper-35)",
+              padding: "15px 16px",
               marginBottom: -1,
-              cursor: "pointer",
+              border: "none",
+              borderBottom: `2px solid ${filter === f.id ? "var(--lime)" : "transparent"}`,
+              background: "none",
               whiteSpace: "nowrap",
+              cursor: "pointer",
             }}
           >
             {f.label}
@@ -144,9 +215,8 @@ export function WorkSection111() {
         style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
-          gap: 2,
-          background: "#111",
-          paddingBottom: 2,
+          gap: "var(--gap)",
+          background: "#131313",
         }}
       >
         {filtered.map((project, i) => (
@@ -186,10 +256,11 @@ function WorkItem111({ project, wide }: { project: Project; wide?: boolean }) {
       style={{
         position: "relative",
         overflow: "hidden",
-        background: "#090909",
-        aspectRatio: wide ? "16/6" : "16/9",
+        background: "#0a0a0a",
+        aspectRatio: wide ? "16/6.8" : "16/9",
         display: "block",
         gridColumn: wide ? "1 / -1" : undefined,
+        isolation: "isolate",
       }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
@@ -231,31 +302,33 @@ function WorkItem111({ project, wide }: { project: Project; wide?: boolean }) {
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-end",
-          padding: "24px 28px",
-          background: "linear-gradient(transparent 40%, rgba(5,5,5,0.88))",
+          padding: "22px 26px",
+          background: "linear-gradient(transparent 30%, rgba(8,8,8,0.88))",
           opacity: hover ? 1 : 0,
           transform: hover ? "translateY(0)" : "translateY(8px)",
-          transition: "opacity 0.35s, transform 0.35s var(--easing)",
+          transition: "opacity 0.32s, transform 0.38s var(--ease)",
         }}
       >
-        <div style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--acid)", marginBottom: 5 }}>
+        <div style={{ fontFamily: "var(--grot)", fontSize: 9.5, fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--lime)", marginBottom: 5 }}>
           {project.client}
         </div>
-        <div style={{ fontFamily: "var(--font-sf)", fontSize: wide ? "clamp(24px, 3vw, 42px)" : "clamp(16px, 1.8vw, 22px)", fontWeight: 400, lineHeight: 1.2, marginBottom: 10 }}>
+        <div style={{ fontFamily: "var(--sf)", fontSize: wide ? "clamp(20px, 2.6vw, 36px)" : "clamp(14px, 1.55vw, 20px)", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: 1.15, color: "var(--paper)", marginBottom: 11 }}>
           {project.title}
         </div>
-        <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
           {[...tags, typeLabel, project.year].filter(Boolean).map((t) => (
             <span
               key={String(t)}
               style={{
+                fontFamily: "var(--grot)",
                 fontSize: 9,
-                letterSpacing: "0.14em",
+                fontWeight: 400,
+                letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                border: "1px solid rgba(245,242,235,0.25)",
+                border: "1px solid var(--paper-18)",
                 padding: "3px 8px",
-                borderRadius: 20,
-                color: "rgba(245,242,235,0.7)",
+                borderRadius: 99,
+                color: "var(--paper-60)",
               }}
             >
               {t}
@@ -267,14 +340,16 @@ function WorkItem111({ project, wide }: { project: Project; wide?: boolean }) {
         .work-item-img {
           position: absolute;
           inset: 0;
-          transition: transform 0.8s var(--easing), filter 0.4s;
-          filter: brightness(0.88) saturate(0.85);
+          transition: transform 0.9s var(--ease), filter 0.5s;
+          filter: brightness(0.88) saturate(0.78);
         }
         .work-item-111:hover .work-item-img {
           transform: scale(1.04);
-          filter: brightness(0.7) saturate(0.7);
+          filter: brightness(0.5) saturate(0.6);
         }
         .work-item-img :global(img) {
+          width: 100%;
+          height: 100%;
           object-fit: cover;
         }
       `}</style>

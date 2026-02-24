@@ -1,97 +1,104 @@
 const services = [
-  { num: "01", title: "Editing", desc: "Story-first cutting that keeps pace and clarity. We shape narrative and rhythm so the final cut lands exactly how it should.", pills: ["Offline", "Online", "Assembly", "Broadcast", "Delivery"] },
-  { num: "02", title: "Color", desc: "Look development and final grade. From dailies to HDR deliverables, we match and elevate the image to its fullest potential.", pills: ["DaVinci Resolve", "4K / HDR", "Dailies", "Look Dev", "Final Grade"] },
-  { num: "03", title: "Sound Design", desc: "Dialogue, music, and design. Mix and master for spot, film, and broadcast. Every frame deserves a sonic identity.", pills: ["Dialogue Edit", "Final Mix", "Score", "SFX", "Broadcast"] },
-  { num: "04", title: "Motion Graphics", desc: "Titles, GFX, and animated elements. Clean, on-brand motion that supports the story without competing with it.", pills: ["Titles", "Lower Thirds", "GFX", "After Effects", "Animation"] },
+  { num: "01", title: "Editing", desc: "Story-first cutting that keeps pace and clarity. We shape narrative and rhythm so the final cut lands exactly how it should.", pills: ["Offline", "Online", "Assembly", "Broadcast"] },
+  { num: "02", title: "Color", desc: "Look development and final grade. From dailies to HDR, we match and elevate the image to its fullest potential.", pills: ["DaVinci Resolve", "4K / HDR", "Dailies", "Look Dev"] },
+  { num: "03", title: "Sound Design", desc: "Dialogue, music, and design. Mix and master for spot, film, and broadcast. Every frame deserves a sonic identity.", pills: ["Dialogue Edit", "Final Mix", "Score", "SFX"] },
+  { num: "04", title: "Motion Graphics", desc: "Titles, GFX, and animated elements. Clean, on-brand motion that supports the story without competing with it.", pills: ["Titles", "Lower Thirds", "GFX", "Animation"] },
 ];
 
 const philosophy = [
-  { label: "Boutique by Design", body: "Small enough to stay nimble and focused. Experienced enough to deliver at the highest level without the overhead of a large facility." },
-  { label: "Right Key Creatives", body: "We match the project with the right editors, colorists, and sound designers. No bench warmers, no B-teams. The person pitching is the person cutting." },
-  { label: "Scale-Appropriate Crews", body: "From solo offline edits to full post crews, we scale to fit the job and the budget — never overbuild, never underdeliver." },
-  { label: "Process", body: "We start with the cut. Then we layer in color, sound, and motion — each step with the same care. Flexible workflows, clear communication, delivery in the formats you need." },
+  { label: "Boutique by design", body: "Small enough to stay nimble and focused. Experienced enough to deliver at the highest level without the overhead of a large facility.", strong: "Small enough to stay nimble and focused." },
+  { label: "Right key creatives", body: "We match the project with the right editors, colorists, and sound designers. No bench warmers, no B-teams. The person pitching is the person cutting.", strong: "No bench warmers, no B-teams." },
+  { label: "Scale-appropriate crews", body: "From solo edits to full post crews, we scale to fit the job and the budget — never overbuild, never underdeliver.", strong: "We scale to fit the job and the budget" },
+  { label: "Process", body: "We start with the cut, then layer in color, sound, and motion — each step with the same care. Clear communication, delivery in the formats you need.", strong: "Each step with the same care." },
 ];
 
 export function About111() {
   return (
-    <section id="about" style={{ padding: "100px 0 0", overflow: "hidden" }}>
+    <section id="about" style={{ paddingTop: 88, overflow: "hidden" }}>
       <div
         className="reveal about-header-111"
         style={{
-          padding: "0 32px 60px",
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
-          gap: 40,
-          alignItems: "start",
+          gap: 52,
+          padding: "0 var(--pad) 68px",
           borderBottom: "1px solid var(--rule)",
+          alignItems: "start",
         }}
       >
         <div>
-          <div style={{ fontSize: 9, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--acid)", marginBottom: 6 }}>
+          <div style={{ fontFamily: "var(--grot)", fontSize: 9.5, fontWeight: 500, letterSpacing: "0.24em", textTransform: "uppercase", color: "var(--lime)", marginBottom: 14 }}>
             About the Studio
           </div>
           <h2
             style={{
-              fontFamily: "var(--font-sf)",
-              fontSize: "clamp(52px, 6.5vw, 100px)",
-              letterSpacing: "0.03em",
-              lineHeight: 0.95,
-              color: "var(--white)",
+              fontFamily: "var(--sf)",
+              fontSize: "clamp(44px, 6.2vw, 90px)",
+              fontWeight: 600,
+              letterSpacing: "-0.038em",
+              lineHeight: 0.93,
+              color: "var(--paper)",
             }}
           >
-            Editing &<br />
-            <em style={{ fontStyle: "italic", fontFamily: "var(--font-sf)", color: "var(--acid)" }}>Post.</em>
-            <br />
-            Work that
-            <br />
-            moves.
+            Editing &amp;<br />
+            Post.<br />
+            <i style={{ display: "block", fontStyle: "italic", fontWeight: 300, color: "var(--paper-60)", fontSize: "0.76em", letterSpacing: "-0.02em", lineHeight: 1.18, marginTop: 10 }}>
+              Work that<br />moves.
+            </i>
           </h2>
         </div>
-        <div style={{ paddingTop: 8, display: "flex", flexDirection: "column", gap: 20 }}>
-          <p style={{ fontSize: 15, lineHeight: 1.75, color: "rgba(245,242,235,0.65)", fontWeight: 300 }}>
-            <strong style={{ color: "var(--white)", fontWeight: 400 }}>We are Basement.</strong> A boutique studio specializing in moving pictures, built by editors who believe the cut is the most powerful tool in storytelling.
+        <div className="a-copy-111" style={{ paddingTop: 4, display: "flex", flexDirection: "column", gap: 17 }}>
+          <p style={{ fontFamily: "var(--grot)", fontSize: 15, fontWeight: 300, lineHeight: 1.82, color: "var(--paper-60)" }}>
+            <strong style={{ color: "var(--paper)", fontWeight: 400 }}>We are Basement.</strong> A boutique studio specializing in moving pictures — built by editors who believe the cut is the most powerful tool in storytelling.
           </p>
-          <p style={{ fontSize: 15, lineHeight: 1.75, color: "rgba(245,242,235,0.65)", fontWeight: 300 }}>
-            We tailor each production to its scale — from solo offline edits to full post crews — and make sure the <strong style={{ color: "var(--white)", fontWeight: 400 }}>right key creatives</strong> are on board to deliver the highest-possible outcome, consistently.
+          <p style={{ fontFamily: "var(--grot)", fontSize: 15, fontWeight: 300, lineHeight: 1.82, color: "var(--paper-60)" }}>
+            We tailor each production to its scale and make sure the <strong style={{ color: "var(--paper)", fontWeight: 400 }}>right key creatives</strong> are on board. From solo offline edits to full post crews, we scale to fit the job without compromise.
           </p>
-          <p style={{ fontSize: 15, lineHeight: 1.75, color: "rgba(245,242,235,0.65)", fontWeight: 300 }}>
+          <p style={{ fontFamily: "var(--grot)", fontSize: 15, fontWeight: 300, lineHeight: 1.82, color: "var(--paper-60)" }}>
             Flexible workflows. Remote and on-site. Clear communication. Delivery in whatever format you need — broadcast, digital, 4K, HDR.
           </p>
+          <a href="#contact" className="a-link-111" style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: "var(--grot)", fontSize: 10.5, fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--paper)", width: "fit-content", borderBottom: "1px solid var(--paper-18)", paddingBottom: 5, marginTop: 6 }}>
+            Work with us
+            <svg width={11} height={11} viewBox="0 0 11 11" fill="none" style={{ flexShrink: 0 }}><path d="M1 10L10 1M10 1H3.5M10 1V7.5" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" /></svg>
+          </a>
         </div>
       </div>
 
       {/* Services horizontal scroll */}
-      <div className="reveal" style={{ overflowX: "auto", scrollbarWidth: "none", borderBottom: "1px solid var(--rule)" }}>
+      <div className="reveal svc-scroll-111" style={{ overflowX: "auto", scrollbarWidth: "none", borderBottom: "1px solid var(--rule)" }}>
         <div style={{ display: "flex", width: "max-content" }}>
           {services.map((s) => (
             <div
               key={s.num}
+              className="svc-card-111"
               style={{
-                minWidth: 280,
-                padding: "40px 32px",
+                minWidth: 290,
+                padding: "38px var(--pad)",
                 borderRight: "1px solid var(--rule)",
                 display: "flex",
                 flexDirection: "column",
                 gap: 16,
               }}
-              className="service-card-111"
             >
-              <div style={{ fontFamily: "var(--font-sf)", fontSize: 13, letterSpacing: "0.2em", color: "var(--acid)" }}>{s.num}</div>
-              <div style={{ fontFamily: "var(--font-sf)", fontSize: 28, fontWeight: 400, lineHeight: 1.1 }}>{s.title}</div>
-              <div style={{ fontSize: 13, lineHeight: 1.7, color: "var(--dim)" }}>{s.desc}</div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: "auto" }}>
+              <div style={{ fontFamily: "var(--cond)", fontSize: 10.5, fontWeight: 600, letterSpacing: "0.22em", color: "var(--lime)" }}>{s.num}</div>
+              <div style={{ fontFamily: "var(--sf)", fontSize: 28, fontWeight: 500, letterSpacing: "-0.03em", lineHeight: 1.05, color: "var(--paper)" }}>{s.title}</div>
+              <div style={{ fontFamily: "var(--grot)", fontSize: 13, fontWeight: 300, lineHeight: 1.78, color: "var(--paper-60)", flex: 1 }}>{s.desc}</div>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginTop: 4 }} className="pills-111">
                 {s.pills.map((p) => (
                   <span
                     key={p}
+                    className="pill-111"
                     style={{
+                      fontFamily: "var(--grot)",
                       fontSize: 9,
-                      letterSpacing: "0.14em",
+                      fontWeight: 400,
+                      letterSpacing: "0.12em",
                       textTransform: "uppercase",
-                      background: "rgba(245,242,235,0.07)",
-                      border: "1px solid rgba(245,242,235,0.1)",
-                      padding: "4px 10px",
-                      borderRadius: 20,
-                      color: "rgba(245,242,235,0.55)",
+                      background: "var(--paper-08)",
+                      border: "1px solid var(--paper-18)",
+                      padding: "3.5px 9px",
+                      borderRadius: 99,
+                      color: "var(--paper-60)",
                     }}
                   >
                     {p}
@@ -100,13 +107,10 @@ export function About111() {
               </div>
             </div>
           ))}
-          <div style={{ minWidth: 200, padding: "40px 32px", background: "rgba(212,242,68,0.04)" }}>
-            <div style={{ fontFamily: "var(--font-sf)", fontSize: 13, letterSpacing: "0.2em", color: "var(--acid)", opacity: 0.3 }}>→</div>
-            <div style={{ fontFamily: "var(--font-sf)", fontSize: 20, color: "var(--acid)" }}>All services</div>
-            <div style={{ fontSize: 13, color: "var(--dim)", marginTop: 8 }}>Every project. Any scale. One boutique team.</div>
-            <a href="#contact" style={{ marginTop: "auto", fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--acid)", borderBottom: "1px solid rgba(212,242,68,0.4)", paddingBottom: 4, display: "inline-block" }}>
-              Work with us →
-            </a>
+          <div style={{ minWidth: 200, padding: "38px var(--pad)", background: "rgba(200,242,52,0.025)", display: "flex", flexDirection: "column", gap: 16 }}>
+            <div style={{ fontFamily: "var(--cond)", fontSize: 10.5, fontWeight: 600, letterSpacing: "0.22em", color: "var(--lime)", opacity: 0.25 }}>→</div>
+            <div style={{ fontFamily: "var(--sf)", color: "var(--lime)", fontSize: 20, fontWeight: 500, lineHeight: 1.2, marginTop: "auto" }}>One team.<br />Every<br />deliverable.</div>
+            <a href="#contact" style={{ marginTop: "auto", fontFamily: "var(--grot)", fontSize: 10, fontWeight: 500, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--lime)", borderBottom: "1px solid rgba(200,242,52,0.28)", paddingBottom: 4, width: "fit-content" }}>Start a project →</a>
           </div>
         </div>
       </div>
@@ -114,24 +118,31 @@ export function About111() {
       {/* Philosophy split */}
       <div
         className="reveal about-split-111"
-        style={{ display: "grid", gridTemplateColumns: "1fr 1fr", borderTop: "1px solid var(--rule)" }}
+        style={{ display: "grid", gridTemplateColumns: "1fr 1fr", borderBottom: "1px solid var(--rule)" }}
       >
-        <div className="about-split-left-111" style={{ padding: "60px 32px", borderRight: "1px solid var(--rule)" }}>
-          <div style={{ fontSize: 9, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--acid)" }}>Our Philosophy</div>
-          <div style={{ fontFamily: "var(--font-sf)", fontSize: "clamp(32px, 3.5vw, 52px)", letterSpacing: "0.04em", lineHeight: 1, margin: "16px 0 24px" }}>
-            Small enough
-            <br />
-            to stay sharp.
+        <div className="about-split-left-111" style={{ padding: "58px var(--pad)", borderRight: "1px solid var(--rule)" }}>
+          <div style={{ fontFamily: "var(--grot)", fontSize: 9.5, fontWeight: 500, letterSpacing: "0.24em", textTransform: "uppercase", color: "var(--lime)", marginBottom: 14 }}>Our Philosophy</div>
+          <div style={{ fontFamily: "var(--sf)", fontSize: "clamp(28px, 3.2vw, 50px)", fontWeight: 600, letterSpacing: "-0.035em", lineHeight: 1.02, color: "var(--paper)", margin: "14px 0 24px" }}>
+            Small enough<br />to stay sharp.
           </div>
-          <p style={{ fontSize: 14, lineHeight: 1.8, color: "var(--dim)" }}>
-            Being boutique isn&apos;t a limitation — it&apos;s the whole point. We never take on more than we can give our best to. Every project gets the senior creative eye and the direct communication that bigger shops promise but rarely deliver.
+          <p style={{ fontFamily: "var(--grot)", fontSize: 14, fontWeight: 300, lineHeight: 1.82, color: "var(--paper-60)" }}>
+            Being boutique isn&apos;t a limitation — it&apos;s the whole point. We never take on more than we can give our best to. Every project gets the senior creative eye and direct communication that larger shops promise but rarely deliver.
           </p>
         </div>
-        <div style={{ padding: "60px 32px", display: "flex", flexDirection: "column", gap: 32 }}>
+        <div style={{ padding: "58px var(--pad)", display: "flex", flexDirection: "column" }}>
           {philosophy.map((item) => (
-            <div key={item.label} style={{ display: "flex", flexDirection: "column", gap: 6, paddingBottom: 24, borderBottom: "1px solid var(--rule)" }}>
-              <div style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--acid)" }}>{item.label}</div>
-              <div style={{ fontSize: 14, lineHeight: 1.7, color: "rgba(245,242,235,0.6)" }}>{item.body}</div>
+            <div key={item.label} className="ph-item-111" style={{ padding: "22px 0", borderBottom: "1px solid var(--rule-sm)" }}>
+              <div style={{ fontFamily: "var(--grot)", fontSize: 9, fontWeight: 500, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--lime)", marginBottom: 7 }}>{item.label}</div>
+              <div style={{ fontFamily: "var(--grot)", fontSize: 13.5, fontWeight: 300, lineHeight: 1.78, color: "var(--paper-60)" }}>
+                {item.strong
+                  ? item.body.split(item.strong).map((part, i) => (
+                      <span key={i}>
+                        {part}
+                        {i === 0 ? <strong style={{ color: "var(--paper)", fontWeight: 400 }}>{item.strong}</strong> : null}
+                      </span>
+                    ))
+                  : item.body}
+              </div>
             </div>
           ))}
         </div>
@@ -141,28 +152,34 @@ export function About111() {
       <div
         className="reveal"
         style={{
-          padding: "80px 32px",
-          borderTop: "1px solid var(--rule)",
+          padding: "76px var(--pad)",
           borderBottom: "1px solid var(--rule)",
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
           textAlign: "center",
-          background: "linear-gradient(135deg, rgba(212,242,68,0.03) 0%, transparent 60%)",
+          gap: 18,
+          background: "radial-gradient(ellipse 65% 90% at 50% 50%, rgba(200,242,52,0.035) 0%, transparent 68%)",
         }}
       >
-        <p
+        <q
           style={{
-            fontFamily: "var(--font-sf)",
+            fontFamily: "var(--sf)",
             fontStyle: "italic",
-            fontSize: "clamp(22px, 3vw, 42px)",
-            lineHeight: 1.35,
+            fontSize: "clamp(19px, 2.7vw, 36px)",
+            fontWeight: 300,
+            letterSpacing: "-0.022em",
+            lineHeight: 1.38,
             maxWidth: 820,
-            color: "rgba(245,242,235,0.85)",
+            color: "var(--paper-60)",
+            quotes: "none",
           }}
         >
-          &ldquo;The best post houses in the world don&apos;t just <strong style={{ color: "var(--white)", fontStyle: "normal" }}>finish</strong> your film — they <strong style={{ color: "var(--white)", fontStyle: "normal" }}>find</strong> it. That&apos;s what we do at Basement. Every frame, every cut, every grade. Until it&apos;s right.&rdquo;
-        </p>
+          The best post houses don&apos;t just <strong style={{ color: "var(--paper)", fontStyle: "normal", fontWeight: 500 }}>finish</strong> your film — they <strong style={{ color: "var(--paper)", fontStyle: "normal", fontWeight: 500 }}>find</strong> it. That&apos;s what we do at Basement. Every frame, every cut, every grade — until it&apos;s right.
+        </q>
+        <span style={{ fontFamily: "var(--grot)", fontSize: 9.5, fontWeight: 400, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--paper-35)" }}>
+          — Basement Studio &nbsp;·&nbsp; Est. 2013
+        </span>
       </div>
     </section>
   );

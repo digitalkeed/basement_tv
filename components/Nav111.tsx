@@ -16,7 +16,7 @@ const navStyle: React.CSSProperties = {
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  padding: "0 28px",
+  padding: "0 var(--pad)",
   transition: "background 0.4s, border-color 0.4s",
   borderBottom: "1px solid transparent",
 };
@@ -24,7 +24,8 @@ const navStyle: React.CSSProperties = {
 const logoWrapStyle: React.CSSProperties = {
   display: "flex",
   alignItems: "center",
-  color: "var(--white)",
+  color: "var(--paper)",
+  flexShrink: 0,
 };
 
 const linksStyle: React.CSSProperties = {
@@ -39,29 +40,34 @@ const linksStyle: React.CSSProperties = {
 };
 
 const linkStyle: React.CSSProperties = {
+  fontFamily: "var(--grot)",
   fontSize: "11px",
   fontWeight: 400,
-  letterSpacing: "0.14em",
+  letterSpacing: "0.15em",
   textTransform: "uppercase",
-  color: "var(--dim)",
+  color: "var(--paper-35)",
   transition: "color 0.2s",
   position: "relative",
 };
 
 const actionsStyle: React.CSSProperties = {
   display: "flex",
-  gap: "16px",
+  gap: "18px",
   alignItems: "center",
+  marginLeft: "auto",
 };
 
 const ctaStyle: React.CSSProperties = {
-  fontSize: "11px",
-  letterSpacing: "0.1em",
+  fontFamily: "var(--grot)",
+  fontSize: "10.5px",
+  fontWeight: 500,
+  letterSpacing: "0.13em",
   textTransform: "uppercase",
-  border: "1px solid rgba(245,242,235,0.2)",
-  padding: "7px 16px",
+  color: "var(--ink)",
+  background: "var(--lime)",
+  padding: "8px 16px",
   borderRadius: "2px",
-  transition: "border-color 0.2s, background 0.2s, color 0.2s",
+  transition: "background 0.18s",
 };
 
 export function Nav111() {
@@ -88,9 +94,9 @@ export function Nav111() {
         ...navStyle,
         ...(scrolled
           ? {
-              background: "rgba(5,5,5,0.9)",
-              backdropFilter: "blur(14px)",
-              WebkitBackdropFilter: "blur(14px)",
+              background: "rgba(8,8,8,0.9)",
+              backdropFilter: "blur(16px)",
+              WebkitBackdropFilter: "blur(16px)",
               borderBottomColor: "var(--rule)",
             }
           : {}),
@@ -129,24 +135,23 @@ export function Nav111() {
       </div>
       <style jsx>{`
         .nav-link-underline:hover {
-          color: var(--white);
+          color: var(--paper);
         }
         .nav-link-underline::after {
           content: "";
           position: absolute;
-          bottom: -3px;
+          bottom: -4px;
           left: 0;
           width: 0;
           height: 1px;
-          background: var(--acid);
-          transition: width 0.3s var(--easing);
+          background: var(--lime);
+          transition: width 0.35s var(--ease);
         }
         .nav-link-underline:hover::after {
           width: 100%;
         }
         .nav-cta:hover {
-          border-color: var(--acid) !important;
-          color: var(--acid) !important;
+          background: #d6f740 !important;
         }
       `}</style>
     </nav>

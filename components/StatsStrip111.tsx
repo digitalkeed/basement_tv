@@ -31,6 +31,7 @@ export function StatsStrip111() {
             style={{
               fontFamily: "var(--font-sf)",
               fontSize: "clamp(40px, 4vw, 64px)",
+              fontWeight: 300,
               letterSpacing: "0.02em",
               lineHeight: 1,
               color: "var(--white)",

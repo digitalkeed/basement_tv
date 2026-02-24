@@ -2,13 +2,13 @@
 
 const items = [
   "Editing",
-  "Color",
+  "Color Grading",
   "Sound Design",
   "Motion Graphics",
   "Boutique Studio",
   "LA · NY · Austin",
   "4K / HDR Broadcast",
-  "Remote & On-Site",
+  "Remote + On-Site",
 ];
 
 export function MarqueeBar() {
@@ -20,9 +20,9 @@ export function MarqueeBar() {
         bottom: 0,
         left: 0,
         right: 0,
-        zIndex: 400,
-        height: "30px",
-        background: "var(--acid)",
+        zIndex: 600,
+        height: 26,
+        background: "var(--lime)",
         overflow: "hidden",
         display: "flex",
         alignItems: "center",
@@ -34,7 +34,7 @@ export function MarqueeBar() {
         style={{
           display: "flex",
           whiteSpace: "nowrap",
-          animation: "marquee 28s linear infinite",
+          animation: "marquee 32s linear infinite",
           willChange: "transform",
         }}
       >
@@ -42,25 +42,26 @@ export function MarqueeBar() {
           <span
             key={`${label}-${i}-t`}
             style={{
-              fontSize: "10px",
-              fontWeight: 500,
-              letterSpacing: "0.2em",
+              fontFamily: "var(--cond)",
+              fontSize: 9.5,
+              fontWeight: 600,
+              letterSpacing: "0.24em",
               textTransform: "uppercase",
-              color: "var(--black)",
-              padding: "0 28px",
+              color: "rgba(8,8,8,0.65)",
+              padding: "0 22px",
             }}
           >
             {label}
           </span>,
-          <span key={`${label}-${i}-d`} style={{ padding: 0, opacity: 0.4, fontSize: "14px" }}>·</span>,
+          <span key={`${label}-${i}-d`} style={{ padding: 0, color: "rgba(8,8,8,0.3)", fontSize: 11 }}>·</span>,
         ])}
       </div>
       <style jsx>{`
         @keyframes marquee {
-          0% {
+          from {
             transform: translateX(0);
           }
-          100% {
+          to {
             transform: translateX(-50%);
           }
         }
