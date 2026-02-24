@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const services = [
   { num: "01", title: "Editing", desc: "Story-first cutting that keeps pace and clarity. We shape narrative and rhythm so the final cut lands exactly how it should.", pills: ["Offline", "Online", "Assembly", "Broadcast"] },
   { num: "02", title: "Color", desc: "Look development and final grade. From dailies to HDR, we match and elevate the image to its fullest potential.", pills: ["DaVinci Resolve", "4K / HDR", "Dailies", "Look Dev"] },
@@ -34,7 +36,7 @@ export function About111() {
             style={{
               fontFamily: "var(--sf)",
               fontSize: "clamp(44px, 6.2vw, 90px)",
-              fontWeight: 600,
+              fontWeight: 400,
               letterSpacing: "-0.038em",
               lineHeight: 0.93,
               color: "var(--paper)",
@@ -42,12 +44,22 @@ export function About111() {
           >
             Editing &amp;<br />
             Post.<br />
-            <i style={{ display: "block", fontStyle: "italic", fontWeight: 300, color: "var(--paper-60)", fontSize: "0.76em", letterSpacing: "-0.02em", lineHeight: 1.18, marginTop: 10 }}>
+            <i style={{ display: "block", fontStyle: "italic", fontWeight: 400, color: "var(--paper-60)", fontSize: "0.76em", letterSpacing: "-0.02em", lineHeight: 1.18, marginTop: 10 }}>
               Work that<br />moves.
             </i>
           </h2>
         </div>
-        <div className="a-copy-111" style={{ paddingTop: 4, display: "flex", flexDirection: "column", gap: 17 }}>
+        <div style={{ paddingTop: 4, display: "flex", flexDirection: "column", gap: 17 }}>
+          <div style={{ position: "relative", width: "100%", aspectRatio: "16/10", borderRadius: 4, overflow: "hidden", marginBottom: 8 }}>
+            <Image
+              src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&q=80"
+              alt="Film production — cinema and post-production"
+              fill
+              sizes="(max-width: 900px) 100vw, 50vw"
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+          <div className="a-copy-111" style={{ display: "flex", flexDirection: "column", gap: 17 }}>
           <p style={{ fontFamily: "var(--grot)", fontSize: 15, fontWeight: 300, lineHeight: 1.82, color: "var(--paper-60)" }}>
             <strong style={{ color: "var(--paper)", fontWeight: 400 }}>We are Basement.</strong> A boutique studio specializing in moving pictures — built by editors who believe the cut is the most powerful tool in storytelling.
           </p>
@@ -61,6 +73,7 @@ export function About111() {
             Work with us
             <svg width={11} height={11} viewBox="0 0 11 11" fill="none" style={{ flexShrink: 0 }}><path d="M1 10L10 1M10 1H3.5M10 1V7.5" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" /></svg>
           </a>
+          </div>
         </div>
       </div>
 
