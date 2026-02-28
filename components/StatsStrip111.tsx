@@ -38,7 +38,7 @@ export function StatsStrip111() {
             }}
           >
             {s.num}
-            <em style={{ color: "var(--acid)", fontStyle: "normal" }}>{s.suffix}</em>
+            <span style={{ color: "var(--acid)" }}>{s.suffix}</span>
           </div>
           <div
             style={{

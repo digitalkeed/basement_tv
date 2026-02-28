@@ -33,6 +33,7 @@ export function About111() {
             About the Studio
           </div>
           <h2
+            className="about-headline-111"
             style={{
               fontFamily: "var(--sf)",
               fontSize: "clamp(44px, 6.2vw, 90px)",
@@ -44,19 +45,21 @@ export function About111() {
           >
             Editing &amp;<br />
             Post.<br />
-            <i style={{ display: "block", fontStyle: "italic", fontWeight: 400, color: "var(--paper-60)", fontSize: "0.76em", letterSpacing: "-0.02em", lineHeight: 1.18, marginTop: 10 }}>
+            <span style={{ display: "block", fontWeight: 400, color: "var(--paper-60)", fontSize: "0.76em", letterSpacing: "-0.02em", lineHeight: 1.18, marginTop: 10 }}>
               Work that<br />moves.
-            </i>
+            </span>
           </h2>
         </div>
         <div style={{ paddingTop: 4, display: "flex", flexDirection: "column", gap: 17 }}>
-          <div style={{ position: "relative", width: "100%", aspectRatio: "16/10", borderRadius: 4, overflow: "hidden", marginBottom: 8 }}>
+          <div style={{ position: "relative", width: "100%", minHeight: 220, aspectRatio: "16/10", borderRadius: 4, overflow: "hidden", marginBottom: 24, background: "var(--ink)" }}>
             <Image
               src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&q=80"
               alt="Film production — cinema and post-production"
               fill
               sizes="(max-width: 900px) 100vw, 50vw"
               style={{ objectFit: "cover" }}
+              priority
+              unoptimized
             />
           </div>
           <div className="a-copy-111" style={{ display: "flex", flexDirection: "column", gap: 17 }}>
@@ -178,7 +181,6 @@ export function About111() {
         <q
           style={{
             fontFamily: "var(--sf)",
-            fontStyle: "italic",
             fontSize: "clamp(19px, 2.7vw, 36px)",
             fontWeight: 300,
             letterSpacing: "-0.022em",
@@ -188,7 +190,7 @@ export function About111() {
             quotes: "none",
           }}
         >
-          The best post houses don&apos;t just <strong style={{ color: "var(--paper)", fontStyle: "normal", fontWeight: 500 }}>finish</strong> your film — they <strong style={{ color: "var(--paper)", fontStyle: "normal", fontWeight: 500 }}>find</strong> it. That&apos;s what we do at Basement. Every frame, every cut, every grade — until it&apos;s right.
+          The best post houses don&apos;t just <strong style={{ color: "var(--paper)", fontWeight: 500 }}>finish</strong> your film — they <strong style={{ color: "var(--paper)", fontWeight: 500 }}>find</strong> it. That&apos;s what we do at Basement. Every frame, every cut, every grade — until it&apos;s right.
         </q>
         <span style={{ fontFamily: "var(--grot)", fontSize: 9.5, fontWeight: 400, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--paper-35)" }}>
           — Basement Studio &nbsp;·&nbsp; Est. 2013

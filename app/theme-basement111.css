@@ -101,6 +101,12 @@ html.theme-basement111 .reveal[data-d="2"] {
 html.theme-basement111 .reveal[data-d="3"] {
   transition-delay: 0.27s;
 }
+
+/* About headline — Regular weight (SF Pro Display) */
+html.theme-basement111 .about-headline-111 {
+  font-weight: 400 !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html.theme-basement111 .reveal {
     opacity: 1;

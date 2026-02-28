@@ -27,7 +27,7 @@ export function Contact111() {
             }}
           >
             Let&apos;s<br />make<br />
-            <i style={{ display: "block", fontStyle: "italic", fontWeight: 300, color: "var(--lime)", fontSize: "0.8em" }}>something.</i>
+            <span style={{ display: "block", fontWeight: 300, color: "var(--lime)", fontSize: "0.8em" }}>something.</span>
           </div>
           <a
             href={site.email.href}

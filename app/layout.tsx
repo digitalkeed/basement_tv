@@ -1,25 +1,24 @@
 import type { Metadata } from "next";
-import { Barlow, Barlow_Condensed } from "next/font/google";
+import { Bebas_Neue, Space_Mono } from "next/font/google";
 import "./globals.css";
-import "./theme-basement111.css";
-import { ClientLayout } from "@/components/ClientLayout";
-import { GrainOverlay } from "@/components/GrainOverlay";
 
-const barlow = Barlow({
+const bebasNeue = Bebas_Neue({
+  weight: "400",
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  style: ["normal", "italic"],
-  variable: "--font-barlow",
+  variable: "--font-bebas",
+  display: "swap",
 });
-const barlowCondensed = Barlow_Condensed({
+
+const spaceMono = Space_Mono({
+  weight: ["400", "700"],
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-barlow-condensed",
+  variable: "--font-space-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Basement — Editing & Post-Production",
-  description: "Editing and post-production. Work that moves.",
+  title: "Basement Studio | Communication & Video Production",
+  description: "Communication and video production. Pristina, Kosovo.",
 };
 
 export default function RootLayout({
@@ -28,13 +27,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`theme-basement111 ${barlow.variable} ${barlowCondensed.variable}`}>
-      <body>
-        <GrainOverlay />
+    <html lang="en" className={`scroll-smooth ${bebasNeue.variable} ${spaceMono.variable}`}>
+      <body className="bg-[#050505] text-[#fafafa] antialiased overflow-x-hidden max-w-[100vw] box-border grain" style={{ fontFamily: "system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif" }}>
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <ClientLayout>{children}</ClientLayout>
+        {children}
       </body>
     </html>
   );
