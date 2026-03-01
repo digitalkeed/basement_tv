@@ -1,4 +1,5 @@
 import { BasementLogo } from "./BasementLogo";
+import { SafeZone } from "./SafeZone";
 
 export function HeroStudio() {
   return (
@@ -15,7 +16,7 @@ export function HeroStudio() {
         />
       </div>
 
-      <div className="relative z-20 flex flex-col items-center justify-center text-center px-6 w-full h-full cursor-default">
+      <SafeZone className="relative z-20 flex flex-col items-center justify-center text-center w-full h-full cursor-default">
         <p
           className="text-[10px] tracking-[0.55em] uppercase text-[#e5ff00] opacity-50 mb-8 transition-opacity duration-500"
           style={{ fontFamily: "var(--font-space-mono), monospace" }}
@@ -26,7 +27,7 @@ export function HeroStudio() {
           <span className="sr-only">Basement Studio</span>
           <BasementLogo className="w-full h-auto fill-white block" />
         </div>
-      </div>
+      </SafeZone>
 
       <div
         className="absolute bottom-9 left-1/2 -translate-x-1/2 z-20 text-[10px] tracking-[0.25em] uppercase text-white/30"

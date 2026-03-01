@@ -2,13 +2,14 @@
 
 import { TEAM_MEMBERS } from "@/content/basement-studio";
 import { Reveal } from "@/components/Reveal";
+import { SafeZone } from "@/components/SafeZone";
 
 export function TeamStudio() {
   return (
-    <section id="team" className="w-full max-w-[100vw] pt-28 md:pt-32 pb-24 md:pb-28 px-7 md:px-12 lg:px-16 bg-[#050505] border-t border-white/5 box-border">
-      <div className="max-w-[1280px] mx-auto w-full">
+    <section id="team" className="section-layout w-full max-w-[100vw] bg-[#050505] border-t border-white/5 box-border">
+      <SafeZone className="flex-1 flex flex-col">
         <Reveal>
-          <div className="flex justify-between items-end gap-4 flex-wrap mb-16 md:mb-20">
+          <div className="flex justify-between items-end gap-4 flex-wrap mb-10 md:mb-14">
             <h2
               className="text-[clamp(42px,6vw,72px)] tracking-[0.02em] leading-none m-0 font-display"
               style={{ fontFamily: "var(--font-bebas), system-ui, sans-serif" }}
@@ -24,7 +25,7 @@ export function TeamStudio() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 border-t border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 border-t border-white/10 flex-1">
           {TEAM_MEMBERS.map((member, i) => (
             <Reveal key={i} delay={i * 40}>
               <div
@@ -56,7 +57,7 @@ export function TeamStudio() {
             </Reveal>
           ))}
         </div>
-      </div>
+      </SafeZone>
     </section>
   );
 }

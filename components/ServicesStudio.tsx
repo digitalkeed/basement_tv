@@ -2,6 +2,7 @@
 
 import { SERVICES_LIST } from "@/content/basement-studio";
 import { Reveal } from "@/components/Reveal";
+import { SafeZone } from "@/components/SafeZone";
 
 function ArrowUpRight() {
   return (
@@ -14,10 +15,10 @@ function ArrowUpRight() {
 
 export function ServicesStudio() {
   return (
-    <section id="services" className="w-full max-w-[100vw] pt-28 md:pt-32 pb-24 md:pb-28 px-7 md:px-12 lg:px-16 bg-[#0a0a0a] box-border">
-      <div className="max-w-[1280px] mx-auto w-full">
+    <section id="services" className="section-layout w-full max-w-[100vw] bg-[#0a0a0a] box-border">
+      <SafeZone className="flex-1 flex flex-col">
         <Reveal>
-          <div className="mb-16 md:mb-20">
+          <div className="mb-10 md:mb-14">
             <h2
               className="text-[clamp(42px,6vw,72px)] tracking-[0.02em] leading-none m-0 mb-1.5 font-display"
               style={{ fontFamily: "var(--font-bebas), system-ui, sans-serif" }}
@@ -33,7 +34,7 @@ export function ServicesStudio() {
           </div>
         </Reveal>
 
-        <div className="border-t border-white/10">
+        <div className="border-t border-white/10 flex-1 flex flex-col justify-center">
           {SERVICES_LIST.map((service, i) => (
             <Reveal key={service.id} delay={i * 60}>
               <div
@@ -59,7 +60,7 @@ export function ServicesStudio() {
                     {service.id}
                   </span>
                   <h3
-                    className="text-[clamp(28px,4.5vw,60px)] tracking-[0.02em] leading-none m-0 text-white transition-colors duration-[0.25s] line-clamp-2 font-display"
+                    className="text-[clamp(24px,4vw,56px)] tracking-[0.02em] leading-none m-0 text-white transition-colors duration-[0.25s] font-display"
                     style={{ fontFamily: "var(--font-bebas), system-ui, sans-serif" }}
                   >
                     {service.title}
@@ -72,7 +73,7 @@ export function ServicesStudio() {
             </Reveal>
           ))}
         </div>
-      </div>
+      </SafeZone>
     </section>
   );
 }

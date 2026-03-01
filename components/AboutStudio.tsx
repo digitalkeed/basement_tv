@@ -1,10 +1,11 @@
 import { Reveal } from "@/components/Reveal";
+import { SafeZone } from "@/components/SafeZone";
 
 export function AboutStudio() {
   return (
-    <section id="about" className="w-full max-w-[100vw] pt-28 md:pt-32 pb-24 md:pb-28 px-7 md:px-12 lg:px-16 bg-[#0a0a0a] box-border">
-      <div className="max-w-[1280px] mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 min-w-0 items-start">
+    <section id="about" className="section-layout w-full max-w-[100vw] bg-[#0a0a0a] box-border">
+      <SafeZone className="flex-1 flex flex-col justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 min-w-0 items-start">
 
           {/* Left column — display type */}
           <div className="lg:col-span-5">
@@ -60,7 +61,7 @@ export function AboutStudio() {
           </div>
 
         </div>
-      </div>
+      </SafeZone>
     </section>
   );
 }

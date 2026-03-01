@@ -1,5 +1,6 @@
 import { BasementLogo } from "./BasementLogo";
 import { Reveal } from "./Reveal";
+import { SafeZone } from "./SafeZone";
 
 function MapPinIcon() {
   return (
@@ -43,25 +44,28 @@ const CONTACT_ITEMS = [
 
 export function ContactStudio() {
   return (
-    <section id="contact" className="w-full max-w-[100vw] pt-28 md:pt-32 pb-16 px-7 md:px-12 lg:px-16 text-center bg-black border-t border-white/[0.08] box-border">
-      <div className="max-w-[1100px] mx-auto w-full">
+    <section id="contact" className="section-layout w-full max-w-[100vw] bg-black border-t border-white/[0.08] box-border text-center">
+      {/* Main contact content — vertically centered */}
+      <SafeZone className="flex-1 flex flex-col items-center justify-center gap-10">
         <Reveal>
-          <h2
-            className="text-[clamp(60px,13vw,180px)] tracking-[0.01em] leading-[0.9] mb-5 cursor-pointer transition-colors duration-300 text-white hover:text-[#e5ff00] font-display"
-            style={{ fontFamily: "var(--font-bebas), system-ui, sans-serif" }}
-          >
-            CONTACT.
-          </h2>
-          <p
-            className="text-[11px] tracking-[0.25em] text-[#444] uppercase mb-[72px]"
-            style={{ fontFamily: "var(--font-space-mono), monospace" }}
-          >
-            Inquiries & Collaborations
-          </p>
+          <div className="flex flex-col items-center gap-3">
+            <h2
+              className="text-[clamp(72px,14vw,200px)] tracking-[0.01em] leading-[0.85] text-white font-display"
+              style={{ fontFamily: "var(--font-bebas), system-ui, sans-serif" }}
+            >
+              CONTACT.
+            </h2>
+            <p
+              className="text-[11px] tracking-[0.3em] text-[#444] uppercase"
+              style={{ fontFamily: "var(--font-space-mono), monospace" }}
+            >
+              Inquiries & Collaborations
+            </p>
+          </div>
         </Reveal>
 
         <Reveal delay={150}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20 justify-items-center">
+          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
             {CONTACT_ITEMS.map((item, i) =>
               item.href ? (
                 <a
@@ -69,38 +73,40 @@ export function ContactStudio() {
                   href={item.href}
                   target={item.href.startsWith("http") ? "_blank" : undefined}
                   rel="noreferrer"
-                  className="flex items-center gap-2.5 text-[11px] tracking-[0.15em] text-[#555] uppercase no-underline transition-colors duration-[0.25s] hover:text-[#e5ff00]"
+                  className="flex items-center gap-2 text-[11px] tracking-[0.15em] text-[#555] uppercase no-underline transition-colors duration-[0.25s] hover:text-[#e5ff00]"
                   style={{ fontFamily: "var(--font-space-mono), monospace" }}
                 >
-                  <span className="text-zinc-400 [&>svg]:inline-block">{item.icon}</span>
+                  <span className="text-zinc-600 [&>svg]:inline-block">{item.icon}</span>
                   {item.text}
                 </a>
               ) : (
                 <span
                   key={i}
-                  className="flex items-center gap-2.5 text-[11px] tracking-[0.15em] text-[#555] uppercase"
+                  className="flex items-center gap-2 text-[11px] tracking-[0.15em] text-[#555] uppercase"
                   style={{ fontFamily: "var(--font-space-mono), monospace" }}
                 >
-                  <span className="text-zinc-400 [&>svg]:inline-block">{item.icon}</span>
+                  <span className="text-zinc-600 [&>svg]:inline-block">{item.icon}</span>
                   {item.text}
                 </span>
               )
             )}
           </div>
         </Reveal>
+      </SafeZone>
 
-        <div className="border-t border-white/[0.07] pt-9 flex flex-col items-center gap-8">
-          <div className="opacity-[0.04] pointer-events-none select-none w-[min(70vw,600px)] [@media(prefers-contrast:more)]:opacity-[0.08]">
-            <BasementLogo className="w-full h-auto fill-white block" />
-          </div>
-          <p
-            className="text-[10px] tracking-[0.18em] text-[#333] uppercase m-0"
-            style={{ fontFamily: "var(--font-space-mono), monospace" }}
-          >
-            © {new Date().getFullYear()} BASEMENT STUDIO. FOUNDED 2025. ALL RIGHTS RESERVED.
-          </p>
+      {/* Footer — pinned to bottom, also contained */}
+      <SafeZone className="mt-auto pb-10 flex flex-col items-center gap-5">
+        <div className="w-full border-t border-white/[0.06] mb-8" />
+        <div className="opacity-[0.04] pointer-events-none select-none w-[min(60vw,480px)]">
+          <BasementLogo className="w-full h-auto fill-white block" />
         </div>
-      </div>
+        <p
+          className="text-[10px] tracking-[0.18em] text-[#2a2a2a] uppercase"
+          style={{ fontFamily: "var(--font-space-mono), monospace" }}
+        >
+          © {new Date().getFullYear()} BASEMENT STUDIO. FOUNDED 2025. ALL RIGHTS RESERVED.
+        </p>
+      </SafeZone>
     </section>
   );
 }

@@ -27,8 +27,15 @@ html {
   /* Brand */
   --accent: #E6FF00;
 
-  /* Container */
-  --container-max: 1240px;
+  /* Container / Safe Zone */
+  --container-max: 1380px;
+  --gutter: clamp(20px, 5vw, 120px);
+
+  /* Section vertical rhythm */
+  --section-pt: clamp(64px, 10vh, 160px);
+  --section-pb: clamp(48px, 6vh, 120px);
+
+  /* Legacy (kept for backward compat with non-Studio components) */
   --container-padding: 24px;
   --container-padding-mobile: 16px;
 
@@ -216,19 +223,24 @@ button:focus-visible {
   border: none;
 }
 
-/* Container */
+/* Safe Zone container — single source of truth */
 .container {
   max-width: var(--container-max);
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--container-padding-mobile);
-  padding-right: var(--container-padding-mobile);
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  width: 100%;
+  box-sizing: border-box;
 }
-@media (min-width: 768px) {
-  .container {
-    padding-left: var(--container-padding);
-    padding-right: var(--container-padding);
-  }
+
+/* Section layout — full-viewport artboard with consistent vertical rhythm */
+.section-layout {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--section-pt);
+  padding-bottom: var(--section-pb);
 }
 
 /* Layout grid */

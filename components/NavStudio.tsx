@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { BasementLogo } from "./BasementLogo";
+import { SafeZone } from "./SafeZone";
 
 function MenuIcon({ className }: { className?: string }) {
   return (
@@ -38,30 +39,32 @@ export function NavStudio() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-300 px-6 py-6 flex justify-between items-center ${
+        className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-300 ${
           isScrolled && !isMenuOpen
-            ? "backdrop-blur-xl py-4 border-b border-white/5 bg-[#0a0a0a]/90"
+            ? "backdrop-blur-xl border-b border-white/5 bg-[#0a0a0a]/90"
             : "bg-transparent"
         }`}
       >
-        <div
-          className={`transition-all duration-500 text-white ${
-            !isScrolled ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto"
-          }`}
-        >
-          <BasementLogo className="h-4 md:h-6 w-auto fill-current" />
-        </div>
+        <SafeZone className="py-5 flex justify-between items-center">
+          <div
+            className={`transition-all duration-500 text-white ${
+              !isScrolled ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto"
+            }`}
+          >
+            <BasementLogo className="h-4 md:h-6 w-auto fill-current" />
+          </div>
 
-        <button
-          type="button"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className={`p-2 hover:opacity-70 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e5ff00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] ${
-            !isMenuOpen ? "mix-blend-difference text-white" : "text-white"
-          }`}
-          aria-label="Toggle Menu"
-        >
-          {isMenuOpen ? <XIcon /> : <MenuIcon />}
-        </button>
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className={`p-2 hover:opacity-70 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e5ff00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] ${
+              !isMenuOpen ? "mix-blend-difference text-white" : "text-white"
+            }`}
+            aria-label="Toggle Menu"
+          >
+            {isMenuOpen ? <XIcon /> : <MenuIcon />}
+          </button>
+        </SafeZone>
       </nav>
 
       <div

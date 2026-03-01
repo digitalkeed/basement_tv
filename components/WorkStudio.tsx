@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FEATURED_WORK } from "@/content/basement-studio";
 import { Reveal } from "@/components/Reveal";
+import { SafeZone } from "@/components/SafeZone";
 
 function PlayIcon({ className }: { className?: string }) {
   return (
@@ -12,9 +13,9 @@ function PlayIcon({ className }: { className?: string }) {
 
 export function WorkStudio() {
   return (
-    <section id="work" className="w-full max-w-[100vw] bg-[#050505] pt-28 md:pt-32 pb-20 md:pb-24 box-border overflow-hidden">
+    <section id="work" className="section-layout w-full max-w-[100vw] bg-[#050505] box-border overflow-hidden">
       <Reveal>
-        <div className="px-7 md:px-12 lg:px-16 pb-16 md:pb-20 flex flex-wrap justify-between items-end gap-4">
+        <SafeZone className="pb-10 md:pb-14 flex flex-wrap justify-between items-end gap-4">
           <h2
             className="text-[clamp(42px,6vw,72px)] tracking-[0.02em] leading-none m-0 font-display"
             style={{ fontFamily: "var(--font-bebas), system-ui, sans-serif" }}
@@ -27,10 +28,11 @@ export function WorkStudio() {
           >
             [ Curated Visuals ]
           </span>
-        </div>
+        </SafeZone>
       </Reveal>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-[100vw] border-t border-white/5">
+      {/* Full-bleed grid — cards go edge to edge intentionally */}
+      <div className="grid grid-cols-1 md:grid-cols-2 w-full flex-1 border-t border-white/5">
         {FEATURED_WORK.map((project, idx) => (
           <a
             key={project.id}
@@ -46,7 +48,7 @@ export function WorkStudio() {
               alt={project.title}
               width={1280}
               height={720}
-              className="w-full h-full object-cover scale-[1.12] grayscale-[30%] transition-[transform_1.2s_cubic-bezier(0.25,0.46,0.45,0.94),opacity_0.6s,filter_0.6s group-hover:scale-[1.08] group-hover:opacity-25 group-hover:grayscale-0"
+              className="w-full h-full object-cover scale-[1.12] grayscale-[30%] transition-[transform_1.2s_cubic-bezier(0.25,0.46,0.45,0.94),opacity_0.6s,filter_0.6s] group-hover:scale-[1.08] group-hover:opacity-25 group-hover:grayscale-0"
             />
             <div
               className="absolute inset-0 z-[5] pointer-events-none"
